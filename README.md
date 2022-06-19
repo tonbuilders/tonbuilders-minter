@@ -8,6 +8,8 @@ This is an example of a default NFT minter provided by TON Foundation [minter ex
 
 Feel free to use it as a starting point to mint your first NFT collection and understand how the TON blockchain works with NFTs. Console has many useful information inside.
 
+To mint **big collection** in mainnet better to use [TON diamonds NFT deployer](https://github.com/tondiamonds/ton-nft-deployer). It's perfect for collections with 10-10000 items.
+
 ### Important for local development
 
 You can create your own TON Minter instance in 1 minute in Replit [here](https://repl.it/@ton-minter/ton-minter).

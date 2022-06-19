@@ -369,6 +369,7 @@ const App = () => {
   const renderResultContainer = () => (
     <div className={'connected-container'}>
 
+
       <div className="">
         <a href={EXPLORER_URL + '/nft/' +
           collectionAddress.toString(true, true, true)} target={'_blank'}>
