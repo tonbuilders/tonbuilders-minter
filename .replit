@@ -1,0 +1,2 @@
+run="npm run dev"
+entrypoint="src/App.jsx"
