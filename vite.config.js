@@ -6,6 +6,7 @@ import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfil
  * @type { import('vite').UserConfig }
  */
 export default {
+  base: '/tonbuilders-minter/',
   optimizeDeps: {
     esbuildOptions: {
       // Node.js global to browser globalThis
