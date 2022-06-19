@@ -379,7 +379,7 @@ const App = () => {
       </div>
 
       <p>
-        <a className={'return-button'} onClick={addNftItem}>
+        <a href={'#'} className={'return-button'} onClick={addNftItem}>
           Create more NFT
         </a>
       </p>

@@ -1,6 +1,6 @@
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-
+import nodePolyfills from 'rollup-plugin-polyfill-node'
 /**
  * https://vitejs.dev/config/
  * @type { import('vite').UserConfig }
@@ -18,6 +18,15 @@ export default {
         NodeGlobalsPolyfillPlugin({
           buffer: true
         })
+      ]
+    }
+  },
+  build: {
+    rollupOptions: {
+      plugins: [
+        // Enable rollup polyfills plugin
+        // used during production bundling
+        nodePolyfills()
       ]
     }
   },
