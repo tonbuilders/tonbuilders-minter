@@ -132,9 +132,11 @@ const App = () => {
 
       setNftCollection(nftCollection)
       setCollectionAddress(nftCollectionAddress)
-      setCollectionHistory(await tonweb.getTransactions(nftCollectionAddress))
+      const history = await tonweb.getTransactions(nftCollectionAddress)
+      console.log('Collection history [1]:', history)
+      setCollectionHistory(history)
 
-      await getInfo(nftCollection)
+      //await getInfo(nftCollection)
 
       setLoading(false)
       return
@@ -156,7 +158,7 @@ const App = () => {
           stateInit: stateInitBase64,
           dataType: 'boc',
         }],
-    ).then(res => {
+    ).then(async res => {
       // we get TRUE or FALSE
 
       if (res) {
@@ -165,6 +167,9 @@ const App = () => {
 
         setCollectionAddress(nftCollectionAddress)
         setNftCollection(nftCollection)
+        const history = await tonweb.getTransactions(nftCollectionAddress)
+        console.log('Collection history [2]:', history)
+        setCollectionHistory(history)
       } else {
         console.log('Wallet didn\'t approved minting transaction')
         alert.show('Wallet didn\'t approved minting transaction')
@@ -226,6 +231,9 @@ const App = () => {
       if (res) {
         console.log('Transaction successful')
         alert.show('Transaction successful')
+        
+        setNfts(true)
+        setLoading(false)
       } else {
         console.log('Wallet didn\'t approved minting transaction')
         alert.show('Wallet didn\'t approved minting transaction')
@@ -303,18 +311,18 @@ const App = () => {
         <div className="">
           <p>
             <input type="text"
-                   placeholder={'Collection content — URL to .json file'}
+                   placeholder={'URL to collection .json file'}
                    value={url}
                    onChange={onUrlChange} />
           </p>
           <p>
             <input type="text"
-                   placeholder={'NFT content — URL where NFT files are stored'}
+                   placeholder={'URL where NFT .json configs stored'}
                    value={nftItemsUrl}
                    onChange={onNftItemsUrlChange} />
           </p>
           <p>
-            <input max={'100'} type="text" placeholder={'Royalty (0-100%)'}
+            <input max={'100'} type="text" placeholder={'Collection royalty (0-100%)'}
                    value={royalty}
                    onChange={onRoyaltyChange} />
           </p>
@@ -340,13 +348,13 @@ const App = () => {
         <div className="">
           <p>
             <input type="text"
-                   placeholder={'NFT index — unique index of the NFT. Starts from 0'}
+                   placeholder={'Unique index of the NFT (starts from 0)'}
                    value={nftIndex}
                    onChange={onNftIndexChange} />
           </p>
           <p>
             <input type="text"
-                   placeholder={'NFT content — name of .json file with NFT params'}
+                   placeholder={'Name of .json config with NFT params'}
                    value={nftContentFile}
                    onChange={onNftContentFileChange} />
           </p>
@@ -435,7 +443,7 @@ const App = () => {
           <p className={'footer-text'}>
             Made by <img width={20} style={{ verticalAlign: 'middle' }}
                          src={logo} alt="" /> <a className={'footer-text'}
-                                                 href="#"> TON Builders</a> team
+                                                 href="https://tonbuilders.com"> TON Builders</a> team
           </p>
         </div>
       </div>
