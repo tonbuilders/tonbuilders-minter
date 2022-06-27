@@ -2,7 +2,7 @@
 
 This is an example of a default NFT minter provided by TON Foundation [minter example](https://github.com/ton-foundation/token-contract/blob/main/nft/web-example/index.html). It uses [TonCenter API](https://toncenter.com/) by default.
 
-[TESTNET DEMO IS HERE](https://ton.cryptolib.net/demo)
+[TESTNET DEMO IS HERE 🚀](https://tonbuilders.github.io/tonbuilders-minter/)
 
 **!!! STUDY-PURPOSE ONLY !!!**
 
@@ -12,7 +12,7 @@ To mint **big collection** in mainnet better to use [TON diamonds NFT deployer](
 
 ### Important for local development
 
-You can create your own TON Minter instance in 1 minute in Replit [here](https://repl.it/@ton-minter/ton-minter).
+[//]: # (You can create your own TON Minter instance in 1 minute in Replit [here]&#40;https://repl.it/@ton-minter/ton-minter&#41;.)
 
 - By default, minter uses `TON testnet`. Change the network in a `constants.config.js`.
 - Minter uses `TonCenter` API that needs a key. Please, add your own API key. Use bots from `constants.config.js` to create API key quickly.
